@@ -1,5 +1,5 @@
 var uuid  = require('node-uuid').v4;
-var work  = require('../db').work;
+var jobs  = require('../db').jobs;
 var log   = require('util').log;
 
 module.exports = push;
@@ -15,5 +15,5 @@ function push(args, cb) {
     commit: args[2]
   };
 
-  work.put(id, JSON.stringify(w), cb);
+  jobs.push(w, cb);
 }

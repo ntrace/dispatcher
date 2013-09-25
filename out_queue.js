@@ -7,12 +7,6 @@ var results    = db.sublevel('results');
 var queue      = Jobs(results, send, 1);
 module.exports = queue;
 
-var _push = queue.push;
-
-queue.push = function() {
-  _push.apply(queue, arguments);
-};
-
 var central;
 
 function send(doc, cb) {
