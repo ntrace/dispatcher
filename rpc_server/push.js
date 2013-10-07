@@ -6,14 +6,17 @@ module.exports = push;
 
 function push(args, cb) {
   log('pushing ' + JSON.stringify(args));
-  var id = args[3];
-  if (! id) id = uuid();
+  var payload = args[0];
+
   var w = {
-    id: id,
-    owner:  args[0],
-    repo:   args[1],
-    commit: args[2]
+  	commit: payload.after,
+  	owner: payload.repository.owner.name,
+  	repo: payload.repository.name,
+  	uuid: payload.uuid,
+  	payload: payload
   };
 
+  if (! w.uuid) w.uuid = uuid();
+  w.id = w.uuid;
   jobs.push(w, cb);
 }
