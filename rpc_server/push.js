@@ -5,7 +5,6 @@ var log   = require('util').log;
 module.exports = push;
 
 function push(args, cb) {
-  log('pushing ' + JSON.stringify(args));
   var payload = args[0];
 
   var w = {
