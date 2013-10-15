@@ -8,11 +8,11 @@ function push(args, cb) {
   var payload = args[0];
 
   var w = {
-  	commit: payload.after,
-  	owner: payload.repository.owner.name,
-  	repo: payload.repository.name,
-  	uuid: payload.uuid,
-  	payload: payload
+    commit: payload.after,
+    owner: payload.repository.owner.name,
+    repo: payload.repository.name,
+    uuid: payload.uuid,
+    payload: payload
   };
 
   if (! w.uuid) w.uuid = uuid();
