@@ -5,15 +5,15 @@ var server = module.exports =
 require('net').createServer(handleConnection);
 
 function handleConnection(conn) {
-	conn.on('error', onError);
+  conn.on('error', onError);
   conn.setKeepAlive(true);
   conn.setNoDelay(true);
   var server = rpc(rpcServer);
   server.pipe(conn).pipe(server);
 
   function onError(err) {
-  	console.error(err);
-  	conn.end();
+    console.error(err);
+    conn.end();
   }
 }
 
